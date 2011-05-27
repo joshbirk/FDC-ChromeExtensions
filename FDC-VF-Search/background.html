@@ -1,0 +1,47 @@
+<script>
+var _searchTab = null;
+var _text = null;
+var _loading = false;
+
+
+chrome.tabs.onUpdated.addListener(function(id, changeInfo, tab) {
+		console.log(tab.id);
+		console.log(_searchTab);
+		if(_searchTab != null && tab != null && changeInfo.status == 'complete' && _searchTab.id == tab.id ) {
+    			console.log('Searching');
+    			if(_text != null) {doSearch();}
+    			}
+    	}
+	);
+	
+chrome.tabs.onRemoved.addListener(function(id, changeInfo) {
+		console.log('Removing '+id);
+		if(_searchTab != null && id == _searchTab.id) { _searchTab = null; }
+		});
+	
+chrome.omnibox.onInputEntered.addListener(
+  function(text) {
+  	_text = text;
+  	if(_searchTab == null) {
+    	chrome.tabs.create({'url':'http://www.salesforce.com/us/developer/docs/pages/Skin/Search.htm'}, setTab);
+    	} else {
+    	chrome.tabs.update(_searchTab.id,{'url':'http://www.salesforce.com/us/developer/docs/pages/Skin/Search.htm'});
+    	}
+ 	}
+    	
+    );
+    
+function setTab(tab) {
+	console.log('Search Tab created '+tab.id);
+	_searchTab = tab;
+	console.log(_searchTab);
+}   
+   
+function doSearch() {
+	console.log('Injecting code');
+	chrome.tabs.insertCSS(_searchTab.id,{'file':'search.css'});
+	chrome.tabs.executeScript(_searchTab.id,{"code":"var searchText = '"+_text+"';"});
+    chrome.tabs.executeScript(_searchTab.id,{"file":"code.js"});
+    _text = null;
+}
+</script>

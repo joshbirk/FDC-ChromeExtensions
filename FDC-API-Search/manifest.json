@@ -1,0 +1,8 @@
+{
+  "name": "Force.com API Documentation Search",
+  "description" : "To use, type 'api' plus a search term into the Omnibox.",
+  "version": "1.0",
+  "background_page": "background.html",
+  "omnibox": { "keyword" : "api" },
+  "permissions":["tabs","http://www.salesforce.com/us/developer/docs/api/*"]
+}

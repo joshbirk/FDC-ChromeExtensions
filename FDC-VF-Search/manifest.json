@@ -1,0 +1,8 @@
+{
+  "name": "Visualforce Documentation Search",
+  "description" : "To use, type 'vf' plus a search term into the Omnibox.",
+  "version": "1.0",
+  "background_page": "background.html",
+  "omnibox": { "keyword" : "vf" },
+  "permissions":["tabs","http://www.salesforce.com/us/developer/docs/pages/*"]
+}

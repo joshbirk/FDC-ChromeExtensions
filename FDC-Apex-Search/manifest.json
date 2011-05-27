@@ -1,0 +1,8 @@
+{
+  "name": "Apex Documentation Search",
+  "description" : "To use, type 'apex' plus a search term into the Omnibox.",
+  "version": "1.0",
+  "background_page": "background.html",
+  "omnibox": { "keyword" : "apex" },
+  "permissions":["tabs","http://www.salesforce.com/us/developer/docs/apexcode/*"]
+}

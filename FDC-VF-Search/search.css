@@ -1,0 +1,41 @@
+div.SearchResultsContainer
+{
+  background-color: #EFEFEF;
+  margin: 0px;
+  padding-left: 25%;
+  height:100%
+  width:100%;
+  z-index: 0;
+}
+
+div#SearchResults {
+	height: 400px;
+	background-color: white;
+	border: 1px solid #999;
+	width: 30%;
+	overflow: scroll;
+	-moz-box-shadow: 3px 3px 3px #666;
+	-webkit-box-shadow: 3px 3px 3px #666;
+	box-shadow: 3px 3px 3px #666;
+}
+
+div.SearchResultsRow {
+	border-bottom: 1px solid black;
+	padding: 3px;
+	padding-left: 20px;
+	cursor: pointer;
+	font-family: Verdana;
+  	font-size: 14px;
+}
+
+h1 { font-size: 18px; }
+
+.contentFrame {
+	position: absolute;
+	left: 32%;
+	top: 0px;
+	width: 68%;
+	height: 100%;
+	border: none;
+	z-index: 100;
+}
